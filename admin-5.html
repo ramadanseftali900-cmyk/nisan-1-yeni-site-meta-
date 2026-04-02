@@ -2036,6 +2036,25 @@ var bedenListesi = [
     'e-46', 'e-48', 'e-50', 'e-52', 'e-54', 'e-56'
 ];
 
+var bedenIsimleri = {
+    // Ayakkabı Bedenleri - değişmez
+    '35': '35', '36': '36', '37': '37', '38': '38', '39': '39', '40': '40',
+    '41': '41', '42': '42', '43': '43', '44': '44', '45': '45', '46': '46',
+    // Giyim Bedenleri - değişmez
+    'XS': 'XS', 'S': 'S', 'M': 'M', 'L': 'L', 'XL': 'XL', 'XXL': 'XXL',
+    // Bebek Bedenleri - değişmez
+    '0-3ay': '0–3 Ay', '3-6ay': '3–6 Ay', '6-9ay': '6–9 Ay',
+    '9-12ay': '9–12 Ay', '12-18ay': '12–18 Ay', '18-24ay': '18–24 Ay',
+    // Çocuk Bedenleri - güncellendi
+    '2-3yas': '2–3 Yaş', '3-4yas': '3–4 Yaş', '4-5yas': '4–5 Yaş',
+    'cocuk-xs': 'XS (5–7 Yaş)', 'cocuk-s': 'S (7–10 Yaş)', 'cocuk-m': 'M (10–12 Yaş)',
+    'cocuk-l': 'L (12–14 Yaş)', 'cocuk-xl': 'XL (14–16 Yaş)',
+    // Kadın Bedenleri - güncellendi
+    'k-34': '(XS)', 'k-36': '(S)', 'k-38': '(M)', 'k-40': '(L)', 'k-42': '(XL)', 'k-44': '(XXL)',
+    // Erkek Bedenleri - güncellendi
+    'e-46': '(S)', 'e-48': '(M)', 'e-50': '(L)', 'e-52': '(XL)', 'e-54': '(XXL)', 'e-56': '(XXXL)'
+};
+
 var renkIsimleri = {
     'siyah': '⚫ Siyah',
     'beyaz': '⚪ Beyaz', 
@@ -2234,7 +2253,7 @@ function updateBedenDropdown(selectElement) {
     aktifBedenler.forEach(function(beden) {
         var option = document.createElement('option');
         option.value = beden;
-        option.textContent = beden;
+        option.textContent = bedenIsimleri[beden] || beden;
         selectElement.appendChild(option);
     });
 }
@@ -2414,11 +2433,11 @@ function createOptionsDiv(id) {
                                         <option value="2-3yas">2-3 Yaş</option>
                                         <option value="3-4yas">3-4 Yaş</option>
                                         <option value="4-5yas">4-5 Yaş</option>
-                                        <option value="cocuk-xs">Çocuk XS</option>
-                                        <option value="cocuk-s">Çocuk S</option>
-                                        <option value="cocuk-m">Çocuk M</option>
-                                        <option value="cocuk-l">Çocuk L</option>
-                                        <option value="cocuk-xl">Çocuk XL</option>
+                                        <option value="cocuk-xs">XS (5–7 Yaş)</option>
+                                        <option value="cocuk-s">S (7–10 Yaş)</option>
+                                        <option value="cocuk-m">M (11–13 Yaş)</option>
+                                        <option value="cocuk-l">L (14–16 Yaş)</option>
+                                        <option value="cocuk-xl">XL (17+ Yaş)</option>
                                     </optgroup>
                                     <optgroup label="� Ayakkabı Numaraları">
                                         <option value="35">35</option>
@@ -2443,20 +2462,20 @@ function createOptionsDiv(id) {
                                         <option value="XXL">XXL</option>
                                     </optgroup>
                                     <optgroup label="👩 Kadın Bedenleri">
-                                        <option value="k-34">K-34</option>
-                                        <option value="k-36">K-36</option>
-                                        <option value="k-38">K-38</option>
-                                        <option value="k-40">K-40</option>
-                                        <option value="k-42">K-42</option>
-                                        <option value="k-44">K-44</option>
+                                        <option value="k-34">(XS)</option>
+                                        <option value="k-36">(S)</option>
+                                        <option value="k-38">(M)</option>
+                                        <option value="k-40">(L)</option>
+                                        <option value="k-42">(XL)</option>
+                                        <option value="k-44">(XXL)</option>
                                     </optgroup>
                                     <optgroup label="👨 Erkek Bedenleri">
-                                        <option value="e-46">E-46</option>
-                                        <option value="e-48">E-48</option>
-                                        <option value="e-50">E-50</option>
-                                        <option value="e-52">E-52</option>
-                                        <option value="e-54">E-54</option>
-                                        <option value="e-56">E-56</option>
+                                        <option value="e-46">(S)</option>
+                                        <option value="e-48">(M)</option>
+                                        <option value="e-50">(L)</option>
+                                        <option value="e-52">(XL)</option>
+                                        <option value="e-54">(XXL)</option>
+                                        <option value="e-56">(3XL)</option>
                                     </optgroup>
                                 </select>
                             </div>
