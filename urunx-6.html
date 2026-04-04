@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Ürün Sayfası 6</title>
+<title id="pageTitle">Ürün Sayfası 6</title>
+<meta name="description" content="Ürün açıklaması yükleniyor..." id="pageDescription">
 
 <!-- PRELOAD - İLK GÖRSELI SAYFA YÜKLENMEDEN ÖNCE BAŞLAT -->
 <link rel="preload" as="image" href="" id="preloadImage1" fetchpriority="highest">
@@ -2282,6 +2283,19 @@ function yukleUrunBilgileriCustomer() {
             if (urunAdi) {
                 localStorage.setItem(getAdminKey('genel_urun_adi'), urunAdi);
                 console.log('✅ Genel ürün adı Firebase\'den yüklendi: ' + urunAdi);
+                
+                // DİNAMİK BAŞLIK GÜNCELLEMESİ
+                document.title = urunAdi + ' | Hızlı Kargo - kargonburada.online';
+                document.getElementById('pageTitle').textContent = urunAdi + ' | Hızlı Kargo - kargonburada.online';
+            }
+        });
+        
+        // SEO açıklamasını da Firebase'den çek
+        database.ref(SITE_ID + '/urunAyarlari/urun6/seo_aciklamasi').once('value', function(snapshot) {
+            var seoAciklama = snapshot.val();
+            if (seoAciklama) {
+                document.querySelector('meta[name="description"]').setAttribute('content', seoAciklama);
+                document.getElementById('pageDescription').setAttribute('content', seoAciklama);
             }
         });
     } else if (typeof onFirebaseReady === 'function') {
