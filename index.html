@@ -2344,11 +2344,18 @@ fbq('track', 'PageView');
 
 <body>
 
+<h1>Ürün Sayfası</h1>
+
+<!-- SEPETE EKLE -->
 <button onclick="fbq('track','AddToCart')">
 Sepete Ekle
 </button>
 
-<button onclick="fbq('track','Purchase',{value:0,currency:'TRY'})">
+<!-- TEST SATIŞ (GEÇİCİ) -->
+<button onclick="fbq('track','Purchase',{
+  value: 1700,
+  currency: 'TRY'
+})">
 Satın Al
 </button>
 
